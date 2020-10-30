@@ -2,10 +2,11 @@ apiVersion: v1
 kind: ReplicationController
 metadata:
   name: kubia
+  namespace: lion-namespace
   labels:
     run: kubia
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     run: kubia
   template:
@@ -15,7 +16,7 @@ spec:
     spec:
       containers:
       - name: kubia
-        image: luksa/kubia:latest
+        image: 85117921/myhello-app:v1.1.10
         ports:
         - containerPort: 8080
           protocol: TCP
